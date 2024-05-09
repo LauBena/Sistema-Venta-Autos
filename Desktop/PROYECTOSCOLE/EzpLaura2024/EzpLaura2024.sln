@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EzpLaura2024", "EzpLaura2024.csproj", "{379486D4-7EDD-414D-88EF-3E5D6F9EF7AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{379486D4-7EDD-414D-88EF-3E5D6F9EF7AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{379486D4-7EDD-414D-88EF-3E5D6F9EF7AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{379486D4-7EDD-414D-88EF-3E5D6F9EF7AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{379486D4-7EDD-414D-88EF-3E5D6F9EF7AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {96FBFB61-E489-4A0E-A539-77DC684E76F2}
+	EndGlobalSection
+EndGlobal
