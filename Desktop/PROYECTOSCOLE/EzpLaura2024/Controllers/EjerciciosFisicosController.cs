@@ -46,40 +46,40 @@ public class EjerciciosFisicosController : Controller
         return View();
     }
 
-    public JsonResult ListadoEjercicios(int? id)
-    {
-        List<VistaEjercicios> EjerciciosMostrar = new List<VistaEjercicios>();
+    // public JsonResult ListadoEjercicios(int? id)
+    // {
+    //   //  List<VistaEjercicios> EjerciciosMostrar = new List<VistaEjercicios>();
 
-        var EjerciciosFisicos = _context.EjerciciosFisicos.ToList();
+    //     var EjerciciosFisicos = _context.EjerciciosFisicos.ToList();
 
-        if (id != null)
-        {
-            EjerciciosFisicos = EjerciciosFisicos.Where(e => e.EjercicioFisicoID == id).ToList();
-        }
+    //     if (id != null)
+    //     {
+    //         EjerciciosFisicos = EjerciciosFisicos.Where(e => e.EjercicioFisicoID == id).ToList();
+    //     }
 
-        var Ejercicio = _context.TipoEjercicios.ToList();
+    //     var Ejercicio = _context.TipoEjercicios.ToList();
 
-        foreach (var EjercicioFisico in EjerciciosFisicos)
+    //     foreach (var EjercicioFisico in EjerciciosFisicos)
 
-        {
-            var ejercicio = Ejercicio.Where(e => e.TipoEjercicioID == EjercicioFisico.TipoEjercicioID).Single();
+    //     {
+    //         var ejercicio = Ejercicio.Where(e => e.TipoEjercicioID == EjercicioFisico.TipoEjercicioID).Single();
 
-            var EjercicioMostrar = new VistaEjercicios
-            {
-                IdEjercicioFisico = EjercicioFisico.EjercicioFisicoID,
-                TipoEjercicioID = EjercicioFisico.TipoEjercicioID,
-                //  EjercicioNombre = Ejercicio.TipoEjercicioID,
-                InicioString = EjercicioFisico.Inicio.ToString("dd/MM/yyy HH:mm"),
-                FinString = EjercicioFisico.Fin.ToString("dd/MM/yyy HH:mm"),
-                EstadoInicio = Enum.GetName(typeof(EstadoEmocional), EjercicioFisico.EstadoEmocionalInicio),
-                EstadoFin = Enum.GetName(typeof(EstadoEmocional), EjercicioFisico.EstadoEmocionalFin),
-                Observaciones = EjercicioFisico.Observaciones
+    //         var EjercicioMostrar = new VistaEjercicios
+    //         {
+    //             IdEjercicioFisico = EjercicioFisico.EjercicioFisicoID,
+    //             TipoEjercicioID = EjercicioFisico.TipoEjercicioID,
+    //             //  EjercicioNombre = Ejercicio.TipoEjercicioID,
+    //             InicioString = EjercicioFisico.Inicio.ToString("dd/MM/yyy HH:mm"),
+    //             FinString = EjercicioFisico.Fin.ToString("dd/MM/yyy HH:mm"),
+    //             EstadoInicio = Enum.GetName(typeof(EstadoEmocional), EjercicioFisico.EstadoEmocionalInicio),
+    //             EstadoFin = Enum.GetName(typeof(EstadoEmocional), EjercicioFisico.EstadoEmocionalFin),
+    //             Observaciones = EjercicioFisico.Observaciones
 
-            };
-            EjerciciosMostrar.Add(EjercicioMostrar);
-        }
+    //         };
+    //         EjerciciosMostrar.Add(EjercicioMostrar);
+    //     }
 
-        return Json(EjerciciosMostrar);
-    }
+    //     return Json(EjerciciosMostrar);
+    // }
 
 }

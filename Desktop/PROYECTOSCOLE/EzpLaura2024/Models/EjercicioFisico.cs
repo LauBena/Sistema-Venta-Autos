@@ -41,21 +41,17 @@ namespace EzpLaura2024.Models
         Desanimado
     }
 
-    public class VistaSumaEjercicioFisico
+    public class VistaEjercicios
     {
-        public string? TipoEjercicioNombre { get; set; }
-        public int TotalidadMinutos { get; set; }
-        public int TotalidadDiasConEjercicio { get; set; }
-        public int TotalidadDiasSinEjercicio { get; set; }
-
-        public List<VistaEjercicioFisico>? DiasEjercicios { get; set; }
+        public int EjercicioFisicoID { get; set; }
+        public int TipoEjercicioID { get; set; }
+        public string? EjercicioNombre { get; set; }
+        public string? InicioString { get; set; }
+        public string? FinString { get; set; }
+        public string? EstadoInicio { get; set; }
+        public string? EstadoFin { get; set; }
+        public string? Observaciones { get; set; }
     }
 
-    public class VistaEjercicioFisico
-    {
-        public int Anio { get; set; }
-        public string? Mes { get; set; }
-        public int? Dia { get; set; }
-        public int CantidadMinutos { get; set; }
-    }
+
 }

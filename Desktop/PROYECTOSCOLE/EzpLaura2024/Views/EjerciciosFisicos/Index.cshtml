@@ -8,81 +8,107 @@
 
 <!-- Button trigger modal -->
 <div class="mb-2">
-    <button type="button" class="btn btn-primary" onclick="NuevoRegistro()" data-bs-toggle="modal"
-        data-bs-target="#ModalEjercicioFisico">
+    <button type="button" class="btn btn-primary" onclick="TraerEjercicioFisico()" data-bs-toggle="modal"
+        data-bs-target="#ModalTipoEjercicio">
         Nuevo Registro
     </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="ModalEjercicioFisico" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="ModalTitulo"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="row">
-                        <input type="hidden" id="EjercicioFisicoID" value="0" />
-                        <div class="mb-3 col-12">
-                            <label for="TipoEjercicioID" class="form-label">Tipo de Ejercicio</label>
-                            @Html.DropDownList("TipoEjercicioID", null, htmlAttributes: new { @class = "form-control" })
-                        </div>
-
-                        <div class="mb-3 col-6">
-                            <label for="FechaInicio" class="form-label">Inicio</label>
-                            <input type="datetime-local" id="FechaInicio" class="form-control"
-                                value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm")" />
-                        </div>
-
-                        <div class="mb-3 col-6">
-                            <label for="EstadoEmocionalInicio" class="form-label">Estado Emocional Inicio</label>
-                            @Html.DropDownList("EstadoEmocionalInicio", null, htmlAttributes: new
-                                {
-                                    @class =
-                                     "form-control"
-                                })
-                        </div>
-
-                        <div class="mb-3 col-6">
-                            <label for="FechaFin" class="form-label">Fin</label>
-                            <input type="datetime-local" id="FechaFin" class="form-control"
-                                value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm")" />
-                        </div>
-
-                        <div class="mb-3 col-6">
-                            <label for="EstadoEmocionalFin" class="form-label">Estado Emocional Fin</label>
-                            @Html.DropDownList("EstadoEmocionalFin", null, htmlAttributes: new
-                                {
-                                    @class = "form-control"
-                                })
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" onclick="LimpiarModal()" class="btn btn-secondary"
-                    data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" onclick="GuardarRegistro()" class="btn btn-primary">Guardar</button>
-            </div>
-        </div>
-    </div>
 </div>
 
 <table class="table table-light table-bordered table-striped table-condensed">
     <thead>
         <tr>
-            <th>Descripción</th>
-            <th style="width: 70px"></th>
-            <th style="width: 70px"></th>
+            <th>
+                <p>Ejercicio</p>
+            </th>
+            <th>
+                <p>Inicio</p>
+            </th>
+            <th>
+                <p>Fin</p>
+            </th>
+            <th>
+                <p>Estado al <br>Iniciar</p>
+            </th>
+            <th><p>Estado al <br>Finalizar</p></th>
+            <th><p>Observaciones</p></th>
+            <th style="border-bottom: 2px solid rgba(200, 4, 4, 0.411);"></th>
+            <th style="border-bottom: 2px solid rgba(200, 4, 4, 0.411);"></th>
         </tr>
     </thead>
-    <tbody id="tbody-tipoejercicios">
+    <tbody id="tbody-ejerciciosFisicos">
     </tbody>
 </table>
+
+
+<!-- Modal -->
+<div class="modal fade " id="ModalTipoEjercicio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content mi-modal">
+      <div class="modal-header">
+        <h5 class="modal-title titulo" id="ModalTitulo"></h5>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <div class="row">
+              <input type="hidden" id="EjercicioFisicoID" value="0">
+              <div class="mb-3 col-md-12 centrar flex-column">
+                <label for="IdEjercicio" class="form-label titulo">Tipo de Ejerciocio</label>
+                @Html.DropDownList("IdEjercicio", null, htmlAttributes: new
+                  {
+                    @class = "select-transparent form-control input-transparent"
+                  })
+              </div>
+
+              <hr>
+
+              <div class="mb-3 col-6 centrar flex-column">
+                <label for="Inicio" class="form-label titulo">Inicio</label>
+                <input type="datetime-local" id="Inicio" class="form-control input-transparent input-circulo" onchange="expanded(this)"/>
+              </div>
+
+              <div class="mb-3 col-6 centrar flex-column">
+                <label for="EstadoInicio" style="margin-right: 2.5rem;" class="form-label titulo">Estado Emocional Inicio</label>
+                @Html.DropDownList("EstadoInicio", null, htmlAttributes: new
+                  {
+                    @class = "form-control input-transparent"
+                  })
+              </div>
+
+              <hr>
+
+              <div class="mb-3 col-6 centrar flex-column">
+                <label for="Fin" class="form-label titulo">Fin</label>
+                <input type="datetime-local" id="Fin" class="form-control input-transparent input-circulo" onchange="expanded(this)"/>
+              </div>
+
+              <div class="mb-3 col-6 centrar flex-column">
+                <label for="EstadoFin" style="margin-right: 2.5rem;" class="form-label titulo">Estado Emocional Fin</label>
+                @Html.DropDownList("EstadoFin", null, htmlAttributes: new { @class = "form-control input-transparent" })
+              </div>
+
+              <hr>
+
+              <div class="mb-3 col-12">
+                <div class="mb-3 col-6 ce">
+                  <label for="Observaciones" class="form-label titulo">Obserbaciones</label>
+                  <textarea id="Observaciones" name="Observaciones" class="textarea-transparent"></textarea>
+                </div>
+              </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="LimpiarModal()" class="btn btn-secondary"
+          data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="GuardarRegistro()" class="btn btn-primary test">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 
 @section Scripts {

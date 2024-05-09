@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EzpLaura2024")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cdf58031cbaf0a51c9c53ab42972479432786628")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9640a29fb9f8cd6b8b4ac87c77babf13c0f795b9")]
 [assembly: System.Reflection.AssemblyProductAttribute("EzpLaura2024")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EzpLaura2024")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
